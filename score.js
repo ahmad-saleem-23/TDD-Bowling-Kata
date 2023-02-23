@@ -12,9 +12,16 @@ function scoreFrame (game){
     // we check if the game is a spare
     if (frameScore === 10){
 
+      // check if it is a strike
+      if ( frame[0] === 10){
+
+        let strikeframe = 10 + arr[indx + 1].reduce((acc, curr) => acc + curr, 0 )
+
+        return strikeframe
+      }
+
       // we check the value. we can automaticly do 
       // let spareFrame = 10 + arr[indx + 1][0]
-
 
       let spareFrame = frame.reduce((acc, curr) => acc + curr, 0 )
       spareFrame += arr[indx + 1][0] 
@@ -22,6 +29,8 @@ function scoreFrame (game){
       return spareFrame
 
     } else 
+
+    // return if it is a normal game
     return frame.reduce((acc, curr) => acc + curr, 0 )
   })
 

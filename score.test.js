@@ -41,8 +41,17 @@ describe('the test will do the following',() =>{
   test('scores a spare game', () => {
     const frames = [
   [6, 1], [4, 0], [6, 4], [2, 7], [3, 5], [5, 0], [5, 5], [0, 0], [1, 6], [7, 2]
-]
+  ]
     const expected = 71 
+    const actual = score.scoreFrame(frames)
+    expect(actual).toBe(expected)
+  })
+
+  test('scores a single strike game', () => {
+    const frames = [
+        [6, 4], [8, 0], [10, 0], [2, 7], [5, 5], [4, 0], [10, 0], [2, 1], [2, 6], [4, 4]
+      ]
+    const expected = 104  
     const actual = score.scoreFrame(frames)
     expect(actual).toBe(expected)
   })
