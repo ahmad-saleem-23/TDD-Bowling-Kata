@@ -11,10 +11,12 @@ function scoreFrame(game) {
       // check if it is a strike
       if (frame[0] === 10) {
         // check if it is a double strike we it will be 20 + arr[indx + 2][0], we can use reduse however it will be messy and long
-        if (arr[indx + 1][0] === 10) {
+        if (arr[indx + 1][0] === 10 && arr[indx + 2] !== undefined) {
+          
+          
           // if it is a double
           let doubleStrike = 20 + arr[indx + 2][0]
-
+          console.log(doubleStrike)
           return doubleStrike
         }
 
@@ -37,7 +39,18 @@ function scoreFrame(game) {
     // return if it is a normal game
     else return frame.reduce((acc, curr) => acc + curr, 0)
   })
-
+  
+  
+  console.log(result)
   // we reduse the mapped game array to get the final score.
   return result.reduce((acc, curr) => acc + curr, 0)
+  
 }
+
+// Score 300 (perfect game):
+// const game = [
+//   [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10]
+// ]
+
+// scoreFrame(game)
+
