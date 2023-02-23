@@ -23,10 +23,10 @@ function scoreFrame(game) {
           
           return doubleStrike
         
-        } 
+         } 
 
         // we will need a function to count the final frames otherwis the count will not be right
-        else if (arr[indx + 2] === undefined){
+          else if (arr[indx + 2] === undefined){
 
             let finalFrames = arr[indx + 1].reduce((acc, curr) => acc + curr, 0)
             
