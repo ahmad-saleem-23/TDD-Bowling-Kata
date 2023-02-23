@@ -1,40 +1,43 @@
-module.exports={scoreFrame, }
+module.exports = { scoreFrame }
 
-function scoreFrame (game){
-  
- 
+function scoreFrame(game) {
   // we map over the whole game array to check the score of every frame. and we return the frame score.
- let result = game.map((frame, indx, arr) => {
-
+  let result = game.map((frame, indx, arr) => {
     // variable for a single frame value
-    let frameScore = frame [0] + frame [1]
-    
-    // we check if the game is a spare
-    if (frameScore === 10){
+    let frameScore = frame[0] + frame[1]
 
+    // we check if the game is a spare
+    if (frameScore === 10) {
       // check if it is a strike
-      if ( frame[0] === 10){
+      if (frame[0] === 10) {
+        // check if it is a double strike we it will be 20 + arr[indx + 2][0], we can use reduse however it will be messy and long
+        if (arr[indx + 1][0] === 10) {
+          // if it is a double
+          let doubleStrike = 20 + arr[indx + 2][0]
+
+          return doubleStrike
+        }
 
         // we add the value of the next frame if there is a strike
-        let strikeframe = 10 + arr[indx + 1].reduce((acc, curr) => acc + curr, 0 )
+        let strikeframe =
+          10 + arr[indx + 1].reduce((acc, curr) => acc + curr, 0)
 
         return strikeframe
       }
 
-      // we check the value. we can automaticly do 
+      // we check the value. we can automaticly do
       // let spareFrame = 10 + arr[indx + 1][0]
 
-      let spareFrame = frame.reduce((acc, curr) => acc + curr, 0 )
-      spareFrame += arr[indx + 1][0] 
-      
-      return spareFrame
+      let spareFrame = frame.reduce((acc, curr) => acc + curr, 0)
+      spareFrame += arr[indx + 1][0]
 
-    } else 
+      return spareFrame
+    }
 
     // return if it is a normal game
-    return frame.reduce((acc, curr) => acc + curr, 0 )
+    else return frame.reduce((acc, curr) => acc + curr, 0)
   })
 
   // we reduse the mapped game array to get the final score.
-  return result.reduce((acc, curr) => acc + curr, 0 )
+  return result.reduce((acc, curr) => acc + curr, 0)
 }
