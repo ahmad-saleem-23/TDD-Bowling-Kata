@@ -15,6 +15,7 @@ function scoreFrame (game){
       // check if it is a strike
       if ( frame[0] === 10){
 
+        // we add the value of the next frame if there is a strike
         let strikeframe = 10 + arr[indx + 1].reduce((acc, curr) => acc + curr, 0 )
 
         return strikeframe
