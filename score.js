@@ -8,23 +8,29 @@ function scoreFrame(game) {
 
     // we check if the game is a spare
     if (frameScore === 10) {
+      
+      
       // check if it is a strike
       if (frame[0] === 10) {
+        
+        
         // check if it is a double strike we it will be 20 + arr[indx + 2][0], we can use reduse however it will be messy and long
         if (arr[indx + 1][0] === 10) {
           
           if (arr[indx + 2] !== undefined){
           // if it is a double
           let doubleStrike = 20 + arr[indx + 2][0]
-          console.log(doubleStrike)
+          
           return doubleStrike
+        
         } 
 
+        // we will need a function to count the final frames otherwis the count will not be right
         else if (arr[indx + 2] === undefined){
 
-            let strikeframe = arr[indx + 1].reduce((acc, curr) => acc + curr, 0)
-            console.log(strikeframe)
-            return strikeframe
+            let finalFrames = arr[indx + 1].reduce((acc, curr) => acc + curr, 0)
+            
+            return finalFrames
           }
         }
 
