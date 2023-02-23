@@ -59,5 +59,11 @@ describe('the test will do the following',() =>{
   test('scores a double strike frame', () => {
     expect(score.scoreFrame([[1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]])).toBe(119)
   })
+
+  test('includes a strike on the last frame', () => {
+    expect(score.scoreFrame( [
+        [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+      ])).toBe(141 )
+  })
   
 })
