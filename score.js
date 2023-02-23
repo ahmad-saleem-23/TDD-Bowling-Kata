@@ -17,8 +17,9 @@ function scoreFrame (game){
 
       let spareFrame = frame.reduce((acc, curr) => acc + curr, 0 )
 
-      spareFrame + arr[indx + 1][0]
-        
+      
+      spareFrame += arr[indx + 1][0]
+      
 
       return spareFrame
 

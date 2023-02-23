@@ -32,7 +32,7 @@ describe('the test will do the following',() =>{
 
   test('scores a spare game', () => {
     const frame =[ [5, 5], [5, 4]]
-    const expected = 19
+    const expected = 24
     const actual = score.scoreFrame(frame)
     expect(actual).toBe(expected)
   })
