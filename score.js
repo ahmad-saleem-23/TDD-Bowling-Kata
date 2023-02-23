@@ -11,13 +11,21 @@ function scoreFrame(game) {
       // check if it is a strike
       if (frame[0] === 10) {
         // check if it is a double strike we it will be 20 + arr[indx + 2][0], we can use reduse however it will be messy and long
-        if (arr[indx + 1][0] === 10 && arr[indx + 2] !== undefined) {
+        if (arr[indx + 1][0] === 10) {
           
-          
+          if (arr[indx + 2] !== undefined){
           // if it is a double
           let doubleStrike = 20 + arr[indx + 2][0]
           console.log(doubleStrike)
           return doubleStrike
+        } 
+
+        else if (arr[indx + 2] === undefined){
+
+            let strikeframe = arr[indx + 1].reduce((acc, curr) => acc + curr, 0)
+            console.log(strikeframe)
+            return strikeframe
+          }
         }
 
         // we add the value of the next frame if there is a strike
@@ -47,7 +55,7 @@ function scoreFrame(game) {
   
 }
 
-// Score 300 (perfect game):
+// // Score 300 (perfect game):
 // const game = [
 //   [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10]
 // ]
