@@ -13,14 +13,12 @@ function scoreFrame (game){
     if (frameScore === 10){
 
       // we check the value. we can automaticly do 
-      // let spareFrame = 10 
+      // let spareFrame = 10 + arr[indx + 1][0]
+
 
       let spareFrame = frame.reduce((acc, curr) => acc + curr, 0 )
-
+      spareFrame += arr[indx + 1][0] 
       
-      spareFrame += arr[indx + 1][0]
-      
-
       return spareFrame
 
     } else 
