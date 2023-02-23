@@ -21,8 +21,8 @@ describe('the test will do the following',() =>{
   // })
 
   test('scores a normal game', () => {
-    const frame =[ [5, 5], [5, 4]]
-    const expected = 19
+    const frame =[ [5, 4], [5, 4]]
+    const expected = 18
     const actual = score.scoreFrame(frame)
     expect(actual).toBe(expected)
   })
