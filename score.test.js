@@ -20,6 +20,15 @@ describe('the test will do the following',() =>{
     expect(actual).toBe(expected)
   })
 
+  test('scores a spare frame', () => {
+    const frame =[ [5, 5], [5, 4]]
+    const expected = 15
+    const actual = score.scoreFrame(frame)
+    expect(actual).toBe(expected)
+  })
+
+
+
 
   
 })
